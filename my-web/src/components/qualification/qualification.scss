@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     @include mobile {
-        padding-top: calc(100% - 280px);
+        padding-top: calc(100% - 150px);
         margin-bottom: 150px;
     }
     h1 {
