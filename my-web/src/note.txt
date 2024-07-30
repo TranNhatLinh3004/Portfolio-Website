@@ -1,0 +1,22 @@
+Trong đoạn mã của bạn, các giá trị -1 và 0.1 trong staggerChildren và staggerDirection có ý nghĩa như sau:
+staggerChildren
+Giá trị 0.1: Đây là khoảng thời gian (tính bằng giây) giữa mỗi lần bắt đầu animation của các phần tử con. Điều này có nghĩa là mỗi phần tử con sẽ bắt đầu animation sau một khoảng thời gian 0.1 giây so với phần tử con trước đó.
+Ví dụ: Nếu phần tử con đầu tiên bắt đầu animation tại thời điểm 0 giây, thì phần tử con thứ hai sẽ bắt đầu tại thời điểm 0.1 giây, phần tử con thứ ba sẽ bắt đầu tại thời điểm 0.2 giây, và cứ tiếp tục như vậy.
+staggerDirection
+Giá trị -1: Giá trị này xác định thứ tự mà các phần tử con sẽ thực hiện animation.
+Giá trị 1: Các phần tử con sẽ thực hiện animation từ trên xuống dưới hoặc từ trái qua phải, tức là theo thứ tự tự nhiên của chúng trong DOM.
+Giá trị -1: Các phần tử con sẽ thực hiện animation ngược lại, từ dưới lên trên hoặc từ phải qua trái, tức là ngược với thứ tự tự nhiên của chúng trong DOM.
+Áp dụng vào đoạn mã của bạn:
+
+const variants = {
+  open: {
+    transition: { staggerChildren: 0.1 }, // Animation cho các phần tử con xuất hiện lần lượt, mỗi phần tử cách nhau 0.1 giây
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }, // Animation cho các phần tử con biến mất lần lượt, mỗi phần tử cách nhau 0.05 giây, theo thứ tự ngược lại
+  },
+};
+
+
+
+

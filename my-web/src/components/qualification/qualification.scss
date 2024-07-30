@@ -1,0 +1,116 @@
+@import "../../app.scss";
+.qualification {
+    left: 0;
+    background-image: url("../../public/images/stars.png");
+    background-attachment: fixed;
+    padding: 50px 0 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mobile {
+        padding-top: calc(100% - 280px);
+        margin-bottom: 150px;
+    }
+    h1 {
+        padding-top: 60px;
+        font-size: 50px;
+        color: var(--highlight-color);
+        @include mobile {
+            font-size: 36px;
+        }
+    }
+    span {
+        font-size: 22px;
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+    .qualification__container {
+        margin-top: 35px;
+        // background-color: rgb(1, 44, 35);
+        max-width: 768px;
+        .qualification__tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--mb-2);
+            .qualification__button {
+                font-size: 22px;
+                font-weight: var(--font-medium);
+                color: var(--title-color);
+                margin: 0 16px;
+                cursor: pointer;
+                &:hover {
+                    // color: var(--title-color-dark);
+                }
+                &.qualification__active {
+                    color: chartreuse;
+                }
+                .qualification__icon {
+                    font-size: 1.8rem;
+                    margin-right: 5px;
+                }
+                @include mobile {
+                    font-size: 16px;
+                }
+            }
+        }
+        .qualification__sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            // background-color: blue;
+            .qualification__content {
+                display: none;
+                &.qualification__content-active {
+                    display: block;
+                }
+                .qualification__data {
+                    width: 100%;
+                    // background-color: brown;
+                    display: grid;
+                    grid-template-columns: 1fr max-content 1fr;
+                    column-gap: 1.5rem;
+                    .qualification__title {
+                        font-size: var(--normal-font-size);
+                        font-weight: var(--font-medium);
+                        @include mobile {
+                            font-size: 16px;
+                        }
+                    }
+                    .qualification__subtitle {
+                        display: inline-block;
+                        font-size: 18px;
+                        margin-bottom: var(--mb-1);
+                        text-align: left;
+                        line-height: 22px;
+                        @include mobile {
+                            font-size: 14px;
+                            text-align: center;
+                        }
+                    }
+                    .qualification__calender {
+                        font-size: var(--small-font-size);
+                        @include mobile {
+                            font-size: 12px;
+                        }
+                    }
+                    .qualification__rounder {
+                        display: inline-block;
+                        width: 13px;
+                        height: 13px;
+                        background-color: gray;
+                        border-radius: 50%;
+                    }
+                    .qualification__line {
+                        display: block;
+                        width: 1px;
+                        height: 100%;
+                        background-color: gray;
+                        transform: translate(6px, -7px);
+                    }
+                }
+            }
+        }
+    }
+}

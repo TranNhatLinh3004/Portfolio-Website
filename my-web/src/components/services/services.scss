@@ -1,0 +1,166 @@
+@import "../../app.scss";
+.services {
+    height: 100%;
+    background-image: url("../../../public/images/stars.png");
+    // background: linear-gradient(180deg, #111132, #505064);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include mobile {
+        margin-top: 65%;
+    }
+    .star {
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: white;
+        /* box-shadow: 0 0 10px white; */
+        border-radius: 50%;
+        animation: shooting 3s linear infinite;
+        box-shadow: 0px 0px 10px chartreuse;
+    }
+    @keyframes shooting {
+        0% {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            transform: translateY(500px) translateX(-500px);
+            opacity: 0;
+        }
+    }
+    .textContainer {
+        flex: 1;
+        align-self: flex-end;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @include mobile {
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        p {
+            font-weight: 200;
+            font-size: 20px;
+            color: grey;
+            text-align: right;
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+        hr {
+            width: 500px;
+            border: none;
+            border-top: 0.5px solid grey;
+            @include mobile {
+                width: 300px;
+            }
+        }
+    }
+    .titleContainer {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @include mobile {
+            width: 100%;
+        }
+        .title {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            @include mobile {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            h1 {
+                font-size: 76px;
+                font-weight: 100;
+                cursor: pointer;
+                @include mobile {
+                    font-size: 36px;
+                }
+            }
+            img {
+                width: 300px;
+                height: 100px;
+                border-radius: 50px;
+                object-fit: cover;
+                @include mobile {
+                    width: 150px;
+                    height: 50px;
+                    margin-top: 10px;
+                }
+            }
+            button {
+                width: 300px;
+                height: 90px;
+                background-color: var(--highlight-color);
+                border: none;
+                cursor: pointer;
+                font-size: 24px;
+                border-radius: 50px;
+                @include mobile {
+                    width: 150px;
+                    height: 40px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .listContainer {
+        // margin-top: 30px;
+        flex: 2;
+        display: flex;
+        max-width: 1266px;
+        margin: auto;
+        cursor: pointer;
+        padding-bottom: 20px;
+        @include mobile {
+            margin-top: 10px;
+            flex-direction: column;
+            width: 100%;
+        }
+        .box {
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            border: 0.5px solid grey;
+            @include mobile {
+                border: none;
+                padding: 10px;
+                align-items: center;
+                // flex-direction: column;
+                // justify-content: center;
+            }
+            p {
+                @include mobile {
+                    display: none;
+                }
+            }
+            button {
+                margin-top: 20px;
+                padding: 10px;
+                background-color: var(--highlight-color);
+                cursor: pointer;
+                border: none;
+                @include mobile {
+                    margin-top: 10px;
+                    width: 70%;
+                    background-color: transparent;
+                    border: 1px solid var(--highlight-color);
+                    color: white;
+                }
+            }
+        }
+    }
+}

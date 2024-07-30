@@ -1,0 +1,270 @@
+@import "../../app.scss";
+.about {
+    position: relative;
+    padding-top: 60px;
+    .wrapper {
+        max-width: 1166px;
+        height: 100%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+        h1 {
+            font-size: 50px;
+            span {
+                color: var(--highlight-color);
+            }
+            @include mobile {
+                font-size: 36px;
+            }
+        }
+        .seperator {
+            position: relative;
+            margin: 10px auto;
+            width: 25%;
+            height: 2px;
+            background-color: var(--highlight-color);
+        }
+        .seperator:before {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--highlight-color);
+        }
+        .about-me-container {
+            margin: 50px 0 50px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-gap: 50px;
+            @include mobile {
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+            }
+            a {
+                border-radius: 10px;
+                padding: 12px 25px;
+                background-color: var(--highlight-color);
+                text-transform: capitalize;
+                color: var(--bg-main);
+                font-weight: 600;
+            }
+            .about-image {
+                opacity: 0.8;
+                width: 80%;
+                height: 80%;
+                object-fit: contain;
+                // object-fit: cover;
+                // background-repeat: no-repeat;
+                // background-position: center;
+                background-size: cover;
+                border-radius: 10px;
+                box-shadow: 2px 2px 5px 0px black, -2px -2px 5px 0px black;
+                /* 0px 8px 7px black; */
+                /* transform: translateX(0); */
+                animation: about_animate 8s ease-in-out infinite 1s;
+                cursor: pointer;
+            }
+            @keyframes about_animate {
+                0%,
+                100% {
+                    transform: translateX(10px);
+                }
+                50% {
+                    transform: translateX(0);
+                }
+            }
+            .left-col {
+                position: relative;
+                @include mobile {
+                    display: none;
+                }
+            }
+            .left-col::before {
+                content: "yes, it's me";
+                text-transform: capitalize;
+                position: absolute;
+                right: -20px;
+                top: -30px;
+                font-size: 20px;
+            }
+            .left-col::after {
+                content: "";
+                position: absolute;
+                top: -10px;
+                right: 80px;
+                width: 50px;
+                height: 2px;
+                background: #fff;
+                transform-origin: right;
+                transform: rotate(-30deg);
+            }
+            .right-col {
+                position: relative;
+                top: -40px;
+                width: 100%;
+                .technical {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    @include mobile {
+                        margin-top: 30px;
+                    }
+                    // background-color: rgb(94, 91, 89);
+                    h1 {
+                        position: absolute;
+                        right: 0;
+                        font-size: 40px;
+                        @include mobile {
+                            font-size: 25px;
+                            right: 25%;
+                        }
+                    }
+                    .wrapper1 {
+                        position: relative;
+                        width: 100%;
+                        margin-top: 50px;
+                        height: 238px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        @include mobile {
+                            flex-direction: column;
+                            height: 100%;
+                        }
+                        .box-one {
+                            border: 1px solid rgb(79, 122, 108);
+                            padding-left: 40px;
+                            // background-color: rgb(79, 122, 108);
+                            width: 49%;
+                            height: 100%;
+                            @include mobile {
+                                width: 90%;
+                            }
+                            .skills__content {
+                                width: 100%;
+                                height: 100%;
+                                margin-top: 20px;
+                                display: flex;
+                                align-items: center;
+                                flex-direction: column;
+                                gap: 10px;
+                                .skills__title {
+                                    font-size: 25px;
+                                    text-align: center;
+                                    position: relative;
+                                    left: -10%;
+                                }
+                                .skills__box {
+                                    width: 100%;
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    flex-wrap: wrap;
+                                    @include mobile {}
+                                    .skills__data {
+                                        margin-bottom: 10px;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 5px;
+                                        h3 {
+                                            font-size: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .about__text {
+                    margin-left: calc(100% - 90%);
+                    width: 85%;
+                    font-size: 22px;
+                    margin-bottom: 30px;
+                    font-weight: normal;
+                }
+                .button {
+                    position: relative;
+                    padding: 10px 22px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    font-size: 18px;
+                    border: none;
+                    color: var(--bg-main);
+                    cursor: pointer;
+                    background-color: var(--highlight-color);
+                    transition: all 0.2s ease;
+                }
+                .button:hover {
+                    transform: scale(1.1);
+                }
+                .button:active {
+                    transform: scale(0.96);
+                }
+                .button:before,
+                .button:after {
+                    position: absolute;
+                    content: "";
+                    width: 150%;
+                    left: 50%;
+                    height: 100%;
+                    transform: translateX(-50%);
+                    z-index: -1000;
+                    background-repeat: no-repeat;
+                }
+                .button:hover:before {
+                    top: -70%;
+                    background-image: radial-gradient( circle, var(--highlight-color) 20%, transparent 20%), radial-gradient( circle, transparent 20%, var(--highlight-color) 20%, transparent 30%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient( circle, transparent 10%, var(--highlight-color) 15%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%);
+                    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+                    background-position: 50% 120%;
+                    animation: greentopBubbles 0.6s ease;
+                }
+                @keyframes greentopBubbles {
+                    0% {
+                        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+                    }
+                    50% {
+                        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+                    }
+                    100% {
+                        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+                        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+                    }
+                }
+                .button:hover::after {
+                    bottom: -70%;
+                    background-image: radial-gradient( circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient( circle, transparent 10%, var(--highlight-color) 15%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%), radial-gradient(circle, var(--highlight-color) 20%, transparent 20%);
+                    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+                    background-position: 50% 0%;
+                    animation: greenbottomBubbles 0.6s ease;
+                }
+                @keyframes greenbottomBubbles {
+                    0% {
+                        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+                    }
+                    50% {
+                        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+                    }
+                    100% {
+                        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+                        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+                    }
+                }
+            }
+        }
+        @include mobile {
+            gap: 20px;
+            padding-top: 0;
+            margin-top: 0;
+            text-align: center;
+        }
+    }
+}
