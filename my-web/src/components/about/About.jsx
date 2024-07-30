@@ -31,10 +31,7 @@ function About() {
 
         <motion.div className="about-me-container">
           <motion.div className="left-col">
-            <motion.img
-              src="../../../public/images/avatar.jpg"
-              className="about-image"
-            />
+            <motion.div className="about-image" />
           </motion.div>
           <motion.div className="right-col">
             <motion.p className="about__text">
