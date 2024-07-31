@@ -45,10 +45,10 @@
                     margin-right: 3px;
                 }
             }
-            a:hover {
+            a.active {
                 color: var(--highlight-color);
             }
-            a.active {
+            a:hover {
                 color: var(--highlight-color);
             }
         }

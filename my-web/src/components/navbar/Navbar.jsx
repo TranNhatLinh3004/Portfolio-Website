@@ -9,11 +9,40 @@ function Navbar() {
   const [active, setActive] = useState("Home");
 
   const handleActive = (e) => {
+    setActive(e.target.id);
+
     // window.scrollTo({
     //   top: document.body.scrollHeight + 2000,
     //   behavior: "smooth",
     // });
   };
+
+  const sections = [
+    { id: "Home", position: 500 },
+    { id: "About", position: 1200 },
+    { id: "Skills", position: 1900 },
+    { id: "Services", position: 2600 },
+    { id: "Portfolio", position: 3400 },
+    { id: "Contact", position: 10000 },
+  ];
+  let timeoutId;
+
+  window.addEventListener("scroll", () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(() => {
+      const currentPosition = window.scrollY;
+      const activeSection = sections.find(
+        (section) => currentPosition >= section.position
+      );
+
+      if (activeSection) {
+        setActive(activeSection.id);
+      }
+    }, 1000);
+  });
 
   const toggleTheme = () => {
     setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
@@ -59,6 +88,7 @@ function Navbar() {
           <li className="nav__item">
             <a
               href="#skills"
+              id="Skills"
               className={active === "Skills" ? "active" : ""}
               onClick={handleActive}
             >
